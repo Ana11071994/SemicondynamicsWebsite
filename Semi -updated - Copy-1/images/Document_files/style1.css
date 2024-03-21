@@ -1,0 +1,179 @@
+html * {
+
+    font-family: "Gotham A", "Gotham B", sans-serif !important;
+  }
+  
+  .poppins-thin {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  .poppins-extralight {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  .poppins-light {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .poppins-regular {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .poppins-medium {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .poppins-semibold {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .poppins-bold {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .poppins-extrabold {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+  }
+  
+  .poppins-black {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  .poppins-thin-italic {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+  }
+  
+  .poppins-extralight-italic {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-weight: 200;
+    font-style: italic;
+  }
+  
+  .poppins-light-italic {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .poppins-regular-italic {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .poppins-medium-italic {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  .poppins-semibold-italic {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+  }
+  
+  .poppins-bold-italic {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  .poppins-extrabold-italic {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-weight: 800;
+    font-style: italic;
+  }
+  
+  .poppins-black-italic {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+  }
+body{
+    background-color: rgb(182, 199, 210);
+}
+.logo1{
+    margin-top: 30px;
+}
+hr {  
+    height: 4px;  
+    background-color:black;  
+    border: none;  
+} 
+.semi{
+    height: 2px;  
+    background-color:black;  
+    border: none;  
+}
+.semi1{
+    height: 2px;  
+    background-color:black;  
+    border: none; 
+}
+.content{
+    background-color:lightgray;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+
+  }
+    
+    
+
+.speakerImageContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 3rem;
+    justify-content: space-around;
+    text-align: left;
+   
+  }
+  
+  .speakerImageContainer img {
+    width: 200px;
+    height: 180px;
+  }
+
+
+.line{
+    background-color: black;
+    padding-top: 0.01em;
+    padding-bottom: 0.05em;
+    width: 40px;
+    margin-bottom: 2em;
+    margin-top: 2em;
+    min-width: 1px;
+    min-height: 0.953125px;
+
+}
+.speaker1{
+    text-align: left;
+}
+.speaker2{
+    text-align: left;
+    width: 220px;
+    height: 200px;
+}

@@ -1,0 +1,676 @@
+
+/*********************** general stuff **********************/
+
+.ab-empty-item {
+color: darkgreen !important;
+}
+
+#wp-admin-bar-updates {
+display: none;
+}
+
+.hide-if-no-customize {
+    display: none;
+}
+
+input.wpcf7-text, textarea.wpcf7-textarea {
+  width: 100%;
+  padding: 0px;
+  margin: 2px 0px;
+}
+
+#pylangswitcher {
+    display: none;
+}
+
+.ui-resizable-handle {
+    z-index: 999 !important; /* not to overlap modal dialogs*/
+}
+
+.fixsresize .ui-resizable-s {
+    bottom: 5px;
+}
+
+.prebox { overflow-x: auto; }
+
+.miny { font-size: 60%; }
+#content img.latex {
+    margin: 4px;
+    background: none;
+}
+
+/* eg, lesson 15C */
+#content table.minyspace tr * { padding: 2px; border-top: 1px solid #E7E7E7; }
+
+.userpage img {
+    height: 32px;
+    width: 32px;
+    vertical-align: -10px;
+}
+
+.userpage .lessoninfo {
+    text-align: right;
+    font-weight: bold;
+}
+
+#content .userpage td {
+	padding: 1px;
+}
+
+.pybox .heading {
+     text-align: center;
+     font-size: 110%;
+}
+.pybox .heading .type {
+    font-style: italic;
+}
+.pybox .heading .title {
+    font-style: normal;
+    font-weight: bold;
+}
+
+.console .heading .type {
+	display: none !important;
+}
+
+.pybox {
+    background-color: #E0E0FF;
+}
+/*.pybox.modeNeutral {
+    background-color: #E0E0FF;
+}*/
+.pybox.modeInternalError {
+    background-color: #FFFF00;
+}
+.pybox.modeCorrect {
+    background-color: #80FF80;
+}
+.pybox.modeNeutral .heading {
+    background-color: #C8C8FF;
+}
+.pybox.modeInternalError .heading {
+    background-color: #D8D800;
+}
+.pybox.modeCorrect .heading {
+    background-color: #30DD30;
+}
+#content .pybox .heading code {
+    background: none;
+}
+
+.problem-completed {
+    border: 1px solid lightBlue;
+    border-radius: 3px;
+    margin-right: 10px;
+    padding: 2px;
+    white-space: nowrap;
+}
+
+.latest-title {
+    font-size: 120%;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.recent {
+    padding: 10px 0px;
+}
+
+.history-prenote {
+    color: #D00;
+}
+
+.history-prenote, .history-note {
+    font-size: 110%;
+    font-weight: bold;
+    margin: 5px 0px;
+}
+
+#content .history-tablette {
+    vertical-align: middle; 
+    display: inline-block; 
+    width: auto; 
+    border: none;
+}
+
+#content .history-tablette {
+    line-height: 14px;
+}
+
+#content .history-tablette-top {
+    line-height: 10px;
+}
+
+#content .history-tablette-bottom {
+    position: relative;
+    top: 5px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 14px;
+}
+
+.progress-selector {
+    background-color:#EEF; 
+    border: 1px solid blue; 
+    border-radius: 5px; 
+    padding: 5px;
+}
+
+.progress-selector td {
+    padding: 2px;
+}
+
+/********************** simple collapsers ********************/
+
+
+
+/* USAGE:
+
+<div.collapseContain.{initialized to hiding or showing}>
+   <div.collapseHead> <span.icon/> text </div>
+   <div.collapseBody/>
+</div>
+
+if several collapseContains are within an .accordion,
+opening one will close the other open ones
+
+*/
+
+.collapseContain {
+  margin: 0px;
+}
+
+.collapseHead {
+	border-radius          : 4px;
+	-moz-border-radius     : 4px;
+	-webkit-border-radius  : 4px;
+	-webkit-border-radius  : 4px;
+	border: 1px solid #55E;
+	font: bold 14px 'Segoe UI', 'Lucida Grande', 'Arial', sans-serif;
+	background: #377AD0;
+	background: -moz-linear-gradient(top ,#52A8E8, #377AD0);
+	background: -webkit-gradient(linear, left top, left bottom , from(#52A8E8), to(#305DA9));
+	background: -webkit-linear-gradient(top , #52A8E8, #377AD0);
+	background: -o-linear-gradient(top , #52A8E8, #377AD0);
+	padding: 4px 10px;
+	color: #FFF !important;
+	/*border: 1px solid #3B592A;*/
+	text-shadow: 0 -1px 0 #3B592A;
+	margin: 0px;
+}
+
+.collapseHead code {
+    background: none;
+}
+
+.quoth {
+    position: absolute;
+    font: bold 14px 'Segoe UI', 'Lucida Grande', 'Arial', sans-serif;
+    top: 0px;
+    right: -50px;
+    float: right;
+    display: table-cell;
+    border-radius: 4px;
+    padding: 1px;
+}
+.quoth:hover {
+    background: blue;
+    color: white;
+    cursor: pointer;
+}
+
+.collapseHead .icon {
+	display: inline-block;
+	border: none;
+	background: url(files/ui-icon-whitest.png);
+	background-position: -64px -16px;
+	width: 16px;
+	height: 16px;
+	position: relative;
+	top: 2px;
+}
+.collapseBody {
+    position: relative;
+    display:block;
+    border: 1px solid #AAF;
+    border-radius: 4px;
+    padding: 2px 4px;
+    background-color: white;
+}
+.collapseContain.hiding .collapseBody {
+    display:none;
+}
+.collapseContain.hiding .collapseHead .icon {
+    background-position: -32px -16px;
+}
+
+.collapseHead:hover {
+    box-shadow: 0px 0px 10px blue;
+    cursor: pointer;
+}
+
+/******************************* mail page *****************************/
+.mailform {
+	text-align: center;
+}
+
+
+/************************** locator: buttons near the bottom to next, prev lessons *******/
+.locator, .locator td {
+    font-weight: 700;
+    color:green;
+}
+div.locator {
+    padding-bottom: 4px;
+  /*margin-left: 7.6%;
+    margin-right: 7.6%;*/
+}
+table.locator {
+    width: 100%;
+}
+td.locator {
+    text-align: center;
+}
+.nextlesson {
+    color: #0f0;
+    border: 1px solid #0f0;
+    border-radius: 4px;
+    padding: 2px;
+}
+a.locator {
+    color: white;
+    background: green;
+    border-radius: 5px;
+    /*margin: 2px;*/
+    padding: 5px;
+    margin: 1px;
+    border: 3px outset palegreen;
+}
+a.locator:hover {
+    text-decoration: none;
+}
+a.locator:hover {
+    border-style: inset;
+}
+
+.locator-c {
+    cursor: pointer;
+}
+
+
+
+/***************** flexigrid ***********************/
+#content .flexigrid * {
+    font-size: 11px;
+    line-height: 14px;
+}
+#content .flexigrid td {
+    padding: 0px;
+}
+#content .flexigrid table {
+    width: auto;
+}
+#content .flexigrid .hDivBox th,
+#content .flexigrid .hDivBox th div
+ {
+    overflow: hidden;
+}
+
+#content .flexigrid table {
+    margin-bottom: 0px;
+}
+
+#content .flexigrid pre {
+    padding: 2px;
+    white-space: pre-wrap;
+}
+
+#content .pyflex tbody {
+    max-width: 100%;
+}
+
+.flexcontain {
+    height: auto !important;
+    margin-top: 3px;
+}
+
+.pyflexerror {
+    background: paleYellow;
+    border: 1px solid red;
+    padding: 3px;
+}
+
+#page #content .pybox .flexigrid input {
+    margin: 2px;
+    padding: 1px 0px;
+}
+
+.usercodecol pre:hover {
+    box-shadow: 0px 0px 10px blue;
+}
+
+
+/*********************** pyWarn shortcode *********************************/
+
+.pywarnleft {
+    vertical-align:middle; 
+    width:90px;
+}
+.pywarnright {
+    vertical-align:middle;
+}
+
+table.pywarn {
+    border: 2px solid black;
+    min-height: 85px;
+    background: #FFFFBB;
+    width: 100%;
+}
+
+#content .pywarn img {
+    float:left;
+    margin:5px;
+}
+
+#content .pywarn .pybox {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+
+/***************************** pyHint shortcode ****************************/
+
+.hintlink {
+    text-decoration: none;
+    border: 1px solid magenta;
+    border-radius: 3px;
+    padding: 1px;
+    font-size: 90%;
+    white-space:nowrap;
+    color: blue;
+    margin-left: 1px;
+    margin-right: 1px;
+    cursor: pointer;
+}
+
+.hintlink:hover {
+    text-decoration: none;
+    background-color: yellow !important;
+}
+
+/* mostly for error hinting */
+.pbresults .prebox .hintlink {
+    font-size: 100%;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.hintbox {
+    display: none;
+    background-color:yellow;
+    width: 320px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 2px;
+    color: #000;
+    -moz-box-shadow: 5px 5px 5px #444;
+    -webkit-box-shadow: 5px 5px 5px #444;
+    box-shadow: 5px 5px 5px #444;
+    cursor: move;
+    z-index:100000; /* on top of resizable-handles */
+}
+
+.hintbox:hover {
+}
+
+.hintbox pre {
+    margin-bottom: 0px;
+}
+
+.hintbox p {
+    margin-bottom: 5px;
+}
+
+.hintboxlink {
+    cursor: pointer;
+    color: #F00;
+    text-align: center;
+    float: right;
+    width: 30px;
+    background-color: gold;
+    vertical-align: middle;
+    position: relative;
+    border-radius: 1px;
+    background-image: url(files/close.png);
+    background-repeat: none;
+    width: 16px;
+    height: 16px;
+}
+
+.hintboxlink:hover {
+    background-color: yellow;
+}
+
+.jqpHintLink {
+    float: right;
+    font-size: 80%;
+}
+
+.widepophint {
+	width: 500px;
+}
+/********************* rest: pybox shortcode and friends ***************/
+#content .pybox {
+    padding: 5px;
+    margin: 5px 0px 5px 0px;
+    border-color: #009900;
+    border-width: 1px;
+    border-style: solid;
+    width: auto;
+    position: relative;
+}
+#content .pybox p { margin-top: 0px; margin-bottom: 0px;}
+#content .pybox pre { padding: 10px; margin: 0px 0px 0px 0px; }
+#content .pybox hr { background-color: #F9F9F9; height: 5px;}
+#content .pybox input { margin: 0px; } 
+
+/********************* short answer *******************/
+#content .pybox input[type="text"] {
+    background: white;
+    border: 2px solid lightgrey;
+    padding: 0px;
+    margin-top: 5px;
+    box-shadow: none;
+}
+
+/******************* complete? *********************/
+img.pycheck {
+    width: 48px;
+    height: 48px;
+    float: right;
+    position: relative;
+    right: -15px;
+    top: -10px; 
+}
+
+/********************** scramble? ********************/
+ul.pyscramble {
+    position: relative;
+    margin: 0;  
+    display: block;
+    padding-left: 0; 
+    list-style: none; 
+    list-style-type: none; 	
+/*    width: 99%; */
+}
+
+li.pyscramble {
+    position: relative; 
+    margin: 0 0 -1px 0; 
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+    background: #ddd;
+    border: 1px solid #bbb; 
+/*    width: 100%; */
+    line-height: 1.2em;
+    cursor: move;	
+    padding: 5px; 
+    white-space: pre;
+}
+
+/********************* dumb editors *******************************/
+#content .pybox textarea {
+    word-wrap: normal;
+    wrap: off;
+    scroll-x: auto;
+    resize: none;
+    white-space: pre;
+    height: 100%;
+    width: 100%;
+    padding: 2px 3px; 
+}
+#content .pybox textarea {
+    box-sizing: border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+}
+
+ie6 #content .pybox textarea,
+ie7 #content .pybox textarea {
+    padding: 0px;
+    border: 0px;
+}
+
+
+
+#content .pybox .ui-resizable-handle:hover {
+    background-color: blue;
+}
+#content .show-resize-handle .ui-resizable-handle:hover {
+    background-color: blue;
+}
+#content .pybox .pyboxTextwrap {
+/*    margin:0px 7px 8px 0px;*/
+    padding:0px;
+}
+
+#content .pybox .pyboxTextwrap { 
+    position: relative;
+}
+
+
+#content .pyboxCode.RW, 
+#content .pyboxInput {
+    width: 100%;
+}
+#content .pyboxCode, 
+#content .pyboxInput {
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+
+/******************** rich editors ******************************/
+
+/****************** action buttons inside each pybox *****************/
+#content .pyboxbuttons { margin: 5px 0px 5px 0px; }
+#content .selectmore   { margin: 5px 0px 0px 0px; }
+#content .pyboxbuttons td { margin: 0px; }
+#content .pyboxbuttons, #content .pyboxbuttons td {
+    padding: 0; 
+    text-align: center;
+}
+#content .pyboxbuttons table {
+    border: none;	
+    table-layout: fixed;
+}
+#content .pyboxbuttons select,
+#content .pyboxbuttons option {
+    background-color: #fafafa;
+    min-width: 100%;
+}
+#content .pyboxbuttons select {
+    border: 1px solid #ddd;
+}
+#content .pyboxbuttons input, 
+#content .pyboxbuttons select,
+#content .pyboxbuttons option {
+    font-size: 16px;
+    max-width: 250px;
+    font-weight: 700;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; /* firefox needed this especiallly */
+}
+
+/*************** line separating input from results**********************/
+#main #content .pbresults { border-top: 5px solid white; }
+#main #content .pbresults:empty, #main #content .pbresults.avoidline { border-top: none; }
+
+/**************** grader *************/
+.gmi { white-space: pre-wrap; }
+
+/**************** epilogue placeholder *********************/
+.epilogue { display: none; }
+
+/****************** action-send-message *********************/
+
+.helpInner .ui-wrapper {
+    padding-bottom: 0px !important;
+}
+
+.helpInner .ui-resizable-s {
+    height: 13px;
+}
+
+.helpControls td {
+    width: 50%;
+    text-align: center;
+}
+
+table.helpControls {
+    border: none; 
+}
+
+.helpOuter {
+    padding: 5px; 
+    background: url(files/rbw.png) repeat;
+}
+
+.helpInner {
+    padding: 3px;
+    background: white;
+}
+
+.get-problem-source {
+    position: absolute;
+    right: 0em;
+    bottom: 0em;
+    font-weight: bold;
+    font-family: Consolas, Monaco, Menlo, 'Ubuntu Mono', 'Droid Sans Mono', monospace !important;
+}
+
+.get-problem-source.bumpit {
+    position: absolute;
+    right: 0em;
+    bottom: 2.1em;
+    font-weight: bold;
+    font-family: Consolas, Monaco, Menlo, 'Ubuntu Mono', 'Droid Sans Mono', monospace !important;
+}
+
+.get-page-source {
+    float: right;
+    font-weight: bold;
+    font-family: Consolas, Monaco, Menlo, 'Ubuntu Mono', 'Droid Sans Mono', monospace !important;
+    position: relative;
+    top: -1.5em;
+    right: 0.2em;
+}
+
+.get-page-source img {
+    position: relative;
+    height: 1em;
+    top: 0.2em !important;
+}
+

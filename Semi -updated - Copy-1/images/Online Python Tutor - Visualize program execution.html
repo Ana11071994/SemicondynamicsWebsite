@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0058)https://cscircles.cemc.uwaterloo.ca/visualize#mode=display -->
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- based on visualize.html from  OnlinePythonTutor v3 --><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!--<base href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/">--><base href=".">
+
+
+<!--
+
+Online Python Tutor
+https://github.com/pgbovine/OnlinePythonTutor/
+
+Copyright (C) 2010-2013 Philip J. Guo (philip@pgbovine.net)
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+ -->
+
+
+  <title>Online Python Tutor - Visualize program execution</title>
+
+  
+
+<!-- requirements for pytutor.js -->
+<script type="text/javascript" src="./Online Python Tutor - Visualize program execution_files/d3.v2.min.js.download"></script>
+<script type="text/javascript" src="./Online Python Tutor - Visualize program execution_files/jquery-1.8.2.min.js.download"></script>
+<script type="text/javascript" src="./Online Python Tutor - Visualize program execution_files/jquery.ba-bbq.min.js.download"></script> <!-- for handling back button and URL hashes -->
+<script type="text/javascript" src="./Online Python Tutor - Visualize program execution_files/jquery.jsPlumb-1.3.10-all-min.js.download"></script> <!-- for rendering SVG connectors
+                                                                                         DO NOT UPGRADE ABOVE 1.3.10 OR ELSE BREAKAGE WILL OCCUR -->
+<script type="text/javascript" src="./Online Python Tutor - Visualize program execution_files/jquery-ui-1.8.24.custom.min.js.download"></script> <!-- for sliders and other UI elements -->
+<link type="text/css" href="./Online Python Tutor - Visualize program execution_files/jquery-ui-1.8.24.custom.css" rel="stylesheet">
+
+<!-- for annotation bubbles -->
+<script type="text/javascript" src="./Online Python Tutor - Visualize program execution_files/jquery.qtip.min.js.download"></script>
+<link type="text/css" href="./Online Python Tutor - Visualize program execution_files/jquery.qtip.css" rel="stylesheet">
+
+<script type="text/javascript" src="./Online Python Tutor - Visualize program execution_files/pytutor.js.download"></script>
+<link rel="stylesheet" href="./Online Python Tutor - Visualize program execution_files/pytutor.css">
+
+<script type="text/javascript" src="./Online Python Tutor - Visualize program execution_files/flexigrid.js.download"></script>
+<link type="text/css" rel="stylesheet" href="./Online Python Tutor - Visualize program execution_files/flexigrid.css">
+
+<script type="text/javascript">justVisualizing = true;
+var translationArray = null;</script>
+<script type="text/javascript" src="./Online Python Tutor - Visualize program execution_files/pybox.js.download"></script>
+<link rel="stylesheet" href="./Online Python Tutor - Visualize program execution_files/pybox.css">
+
+<!-- requirements for opt-frontend.js -->
+
+<!-- codemirror.net online code editor -->
+<script type="text/javascript" src="./Online Python Tutor - Visualize program execution_files/codemirror.js.download"></script>
+<link type="text/css" href="./Online Python Tutor - Visualize program execution_files/codemirror.css" rel="stylesheet">
+<script type="text/javascript" src="./Online Python Tutor - Visualize program execution_files/python.js.download"></script>
+<script type="text/javascript" src="./Online Python Tutor - Visualize program execution_files/matchbrackets.js.download"></script>
+
+<script type="text/javascript">
+var python3_backend_script = '../action-optv3.php';
+</script>
+
+<script type="text/javascript" src="./Online Python Tutor - Visualize program execution_files/opt-frontend-common.js.download"></script>
+<script type="text/javascript" src="./Online Python Tutor - Visualize program execution_files/opt-frontend.js.download"></script>
+
+<link rel="stylesheet" href="./Online Python Tutor - Visualize program execution_files/opt-frontend.css">
+
+<link rel="stylesheet" href="./Online Python Tutor - Visualize program execution_files/textmate.css">
+
+<style>
+.CodeMirror {
+  border: 1px solid #eee;
+  height: auto;
+}
+.CodeMirror-scroll {
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror {
+    font-family: Monaco, Menlo, 'Ubuntu Mono', 'Droid Sans Mono', Consolas, monospace;
+    font-size: 16px;
+    line-height: 22px;
+    background: #FEFEFE;
+    height: auto;
+}
+</style>
+
+</head>
+
+<body>
+
+<p style="text-align: center;">
+<a href="https://cscircles.cemc.uwaterloo.ca/">Computer Science Circles Homepage</a> 
+ | 
+<a href="https://cscircles.cemc.uwaterloo.ca/contact/">Contact Us</a>
+</p>
+
+<div id="pyInputPane" style="display: none;">
+
+Write your Python 3 code here:
+<br>
+
+<div id="codeInputPane"><div class="CodeMirror cm-s-default"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 6px; left: 77.9844px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none; font-size: 4px;"></textarea></div><div class="CodeMirror-hscrollbar" style="left: 29px;"><div style="height: 1px;"></div></div><div class="CodeMirror-vscrollbar"><div style="width: 1px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="min-width: 547.219px; margin-left: 29px; min-height: 228px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span class="cm-variable">n</span><span class="cm-variable">u</span><span class="cm-variable">m</span><span>=</span><span class="cm-number">5</span></pre></div><div style="position: relative; z-index: 1; display: none;"><div class="CodeMirror-selected" style="position: absolute; left: 4px; top: 1px; width: 663px; height: 19px;"></div><div class="CodeMirror-selected" style="position: absolute; left: 4px; top: 221px; width: 114.359px; height: 19px;"></div><div class="CodeMirror-selected" style="position: absolute; left: 4px; top: 20px; width: 663px; height: 201px;"></div></div><div class="CodeMirror-code" style=""><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">1</div></div><pre><span class="cm-variable">num</span>=<span class="cm-number">5</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">2</div></div><pre><span class="cm-variable">factorial</span>=<span class="cm-number">1</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">3</div></div><pre><span class="cm-keyword">if</span> <span class="cm-variable">num</span> <span class="cm-operator">&lt;</span><span class="cm-number">0</span>:</pre></div><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">4</div></div><pre>    <span class="cm-builtin">print</span>(<span class="cm-string">"factorial cannot be found for negative number"</span>)</pre></div><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">5</div></div><pre><span class="cm-keyword">elif</span> <span class="cm-variable">num</span><span class="cm-operator">==</span><span class="cm-number">0</span>:</pre></div><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">6</div></div><pre>    <span class="cm-builtin">print</span>(<span class="cm-string">"factorial of 0 is :"</span>,<span class="cm-variable">num</span>)</pre></div><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">7</div></div><pre><span class="cm-keyword">else</span>:</pre></div><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">8</div></div><pre>    <span class="cm-keyword">for</span> <span class="cm-variable">i</span> <span class="cm-operator">in</span> <span class="cm-builtin">range</span>(<span class="cm-number">1</span>,<span class="cm-variable">num</span><span class="cm-operator">+</span><span class="cm-number">1</span>):</pre></div><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">9</div></div><pre><span class="cm-error">        </span><span class="cm-variable">factorial</span>=<span class="cm-variable">factorial</span><span class="cm-operator">*</span><span class="cm-variable">i</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">10</div></div><pre><span class="cm-error">    </span><span class="cm-builtin">print</span>(<span class="cm-string">"the factorial of "</span>,<span class="cm-variable">num</span>,<span class="cm-string">"is"</span>,<span class="cm-variable">factorial</span>)</pre></div></div><div class="CodeMirror-cursor" style="left: 47.9844px; top: 1px; height: 19px;">&nbsp;</div><div class="CodeMirror-cursor CodeMirror-secondarycursor" style="display: none;">&nbsp;</div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 228px;"></div><div class="CodeMirror-gutters" style="height: 228px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 28px;"></div></div></div></div></div> <!-- populate with a CodeMirror instance -->
+
+<p style="margin-top: 10px; line-height: 200%; display: none">
+Execute code using
+  <select id="pythonVersionSelector">
+    <option value="3">Python 3.3</option> <!-- default for cemc -->
+    <option value="2">Python 2.7</option>
+  </select>,
+  <select id="cumulativeModeSelector">
+    <option value="false">hide frames of exited functions</option>
+    <option value="true">show frames of exited functions</option>
+  </select>,
+  <select id="heapPrimitivesSelector">
+    <option value="false">inline primitives and nested objects</option>
+    <option value="true">render all objects on the heap</option>
+  </select>,
+  <select id="drawParentPointerSelector">
+    <option value="false">hide environment parent pointers</option>
+    <option value="true">show environment parent pointers</option>
+  </select>,
+  <select id="textualMemoryLabelsSelector">
+    <option value="false">draw references using arrows</option>
+    <option value="true">use text labels for references</option>
+  </select>, and
+  <select id="showOnlyOutputsSelector">
+    <option value="false">show everything</option>
+    <option value="true">show only outputs</option>
+  </select>.
+</p>
+
+<p style="text-align:center">
+<button id="executeBtn" class="bigBtn" type="button">Visualize Execution</button>
+</p>
+
+<div class="collapseContain hiding">
+<div class="collapseHead"><span class="icon"></span>Enter
+ optional text input for the program to read with <tt>input()</tt>:
+</div> 
+<div class="collapseBody">
+<textarea id="stdinPane" cols="55" rows="5" wrap="off" style="width:100%"></textarea>
+</div>
+</div>
+
+
+<div class="collapseContain hiding">
+<div class="collapseHead"><span class="icon"></span>Examples
+</div> 
+<div class="collapseBody">
+
+<p>Basic Examples:<br>
+
+<a id="aliasExampleLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">hello</a> |
+<a id="happyExampleLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">happy</a> |
+<a id="tutorialExampleLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">intro</a> |
+<a id="filterExampleLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">filter</a> |
+<a id="strtokExampleLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">tokenize</a> |
+<a id="insSortExampleLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">insertion sort</a> |
+<a id="listCompLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">list comprehension</a>
+</p>
+
+<p style="margin-top: 15px;">Math-Related Fun:<br>
+<a id="factExampleLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">factorial</a> |
+<a id="fibonacciExampleLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">fibonacci</a> |
+<a id="memoFibExampleLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">memoized fibonacci</a> |
+<a id="newtonExampleLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">square root</a> |
+<a id="pwGcdLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">gcd</a> |
+<a id="towersOfHanoiLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">towers of hanoi</a>
+</p>
+
+<p style="margin-top: 15px;">Higher-Order Functions:<br>
+
+<a id="closure1Link" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">closure 1</a> |
+<a id="closure2Link" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">closure 2</a> |
+<a id="closure3Link" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">closure 3</a> |
+<a id="closure4Link" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">closure 4</a> |
+<a id="closure5Link" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">closure 5</a>
+<br>
+<!-- <a id="sumCubesLink" href="#">sum cubes</a> | -->
+<a id="mapExampleLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">list map</a> |
+<a id="sumExampleLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">summation</a> |
+<a id="lambdaParamLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">lambda param</a> |
+<a id="tortureLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">student torture</a>
+
+</p>
+
+<p style="margin-top: 15px;">User Input:<br>
+
+<a id="rawInputExampleLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">raw input</a>
+
+</p>
+
+<p style="margin-top: 15px;">Object-Oriented Programming:<br>
+
+<a id="oop1ExampleLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">OOP 1</a> |
+<a id="oop2ExampleLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">OOP 2</a> |
+<a id="oopSmallExampleLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">OOP 3</a> |
+<a id="inheritanceExampleLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">inheritance</a>
+
+</p>
+
+<p style="margin-top: 15px;">Linked Lists:<br>
+<a id="ll1Link" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">LL 1</a> |
+<a id="ll2Link" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">LL 2</a> |
+<a id="sumListLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">LL sum</a>
+</p>
+
+<p style="margin-top: 15px;">Pointer Aliasing:<br>
+<a id="aliasing1Link" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">aliasing 1</a> |
+<a id="aliasing2Link" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">aliasing 2</a> |
+<a id="aliasing3Link" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">aliasing 3</a> |
+<a id="aliasing4Link" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">aliasing 4</a>
+<br>
+<a id="aliasing5Link" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">aliasing 5</a> |
+<a id="aliasing6Link" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">aliasing 6</a> |
+<a id="aliasing7Link" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">aliasing 7</a> |
+<a id="aliasing8Link" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">aliasing 8</a> |
+<a id="pwSumListLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">sumList</a>
+</p>
+
+<p style="margin-top: 15px;">More Python Tricks:<br>
+<a id="decoratorsLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">decorators</a> |
+<a id="genPrimesLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">generators</a> |
+<a id="genExprLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">gen expr</a> |
+<a id="varargsLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">varargs</a> |
+<a id="pwTryFinallyLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">exceptions</a> |
+<a id="forElseLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">for-else</a> |
+<a id="nonlocalLink" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">nonlocal</a>
+</p>
+
+</div></div> <!-- collapse body, container -->
+
+</div>
+
+
+<div id="pyOutputPane" style="display: block;"><div class="ExecutionVisualizer"><div id="vizHeader" style="display: none;">       <textarea class="vizTitleText" id="vizTitleEditor" cols="60" rows="1" style="display: none;"></textarea>       <div class="vizTitleText" id="vizTitleViewer"></div>       <textarea class="vizDescriptionText" id="vizDescriptionEditor" cols="75" rows="2" style="display: none;"></textarea>       <div class="vizDescriptionText" id="vizDescriptionViewer"></div>    </div><table border="0" class="visualizer"><tbody><tr><td class="vizLayoutTd" id="vizLayoutTdFirst"><div id="codeDisplayDiv" class="ui-resizable">       <div id="pyCodeOutputDiv"><table id="pyCodeOutput"><tr><td class="lineNo" id="lineNo1">1</td><td class="cod highlight-cur" id="v3__cod1">num=5</td></tr><tr><td class="lineNo" id="lineNo2">2</td><td class="cod" id="v3__cod2">factorial=1</td></tr><tr><td class="lineNo" id="lineNo3">3</td><td class="cod" id="v3__cod3">if&nbsp;num&nbsp;&lt;0:</td></tr><tr><td class="lineNo" id="lineNo4">4</td><td class="cod" id="v3__cod4">&nbsp;&nbsp;&nbsp;&nbsp;print("factorial&nbsp;cannot&nbsp;be&nbsp;found&nbsp;for&nbsp;negative&nbsp;number")</td></tr><tr><td class="lineNo" id="lineNo5">5</td><td class="cod" id="v3__cod5">elif&nbsp;num==0:</td></tr><tr><td class="lineNo" id="lineNo6">6</td><td class="cod" id="v3__cod6">&nbsp;&nbsp;&nbsp;&nbsp;print("factorial&nbsp;of&nbsp;0&nbsp;is&nbsp;:",num)</td></tr><tr><td class="lineNo" id="lineNo7">7</td><td class="cod" id="v3__cod7">else:</td></tr><tr><td class="lineNo" id="lineNo8">8</td><td class="cod" id="v3__cod8">&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(1,num+1):</td></tr><tr><td class="lineNo" id="lineNo9">9</td><td class="cod" id="v3__cod9">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;factorial=factorial*i</td></tr><tr><td class="lineNo" id="lineNo10">10</td><td class="cod" id="v3__cod10">&nbsp;&nbsp;&nbsp;&nbsp;print("the&nbsp;factorial&nbsp;of&nbsp;",num,"is",factorial)</td></tr></table></div>       <div id="editCodeLinkDiv" style="display: block;"><a id="editBtn" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#">Edit code</a></div>       <div id="executionSlider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" style="font-size: 0.9em;"><a class="ui-slider-handle ui-state-default ui-corner-all" href="https://cscircles.cemc.uwaterloo.ca/wp-content/plugins/pybox/OnlinePythonTutor3-cemc/#" style="left: 0%; width: 0.8em; height: 1.4em;"></a></div>       <div id="vcrControls">         <button id="jmpFirstInstr" ,="" type="button" disabled="disabled">&lt;&lt; First</button>         <button id="jmpStepBack" ,="" type="button" disabled="disabled">&lt; Back</button>         <span id="curInstr">Step 1 of 16</span>         <button id="jmpStepFwd" ,="" type="button">Forward &gt;</button>         <button id="jmpLastInstr" ,="" type="button">Last &gt;&gt;</button>       </div>       <div id="errorOutput" style="display: none;"></div>       <div id="legendDiv"><span class="highlight-legend highlight-prev">line that has just executed</span> <span class="highlight-legend highlight-cur">next line to execute</span></div>       <div id="stepAnnotationDiv">         <textarea class="annotationText" id="stepAnnotationEditor" cols="60" rows="3" style="display: none;"></textarea>         <div class="annotationText" id="stepAnnotationViewer"></div>       </div>       <div id="annotateLinkDiv"><button id="annotateBtn" type="button" style="display: none;">Annotate this step</button></div>     <div class="ui-resizable-handle ui-resizable-e" style="z-index: 1000;"></div></div><div id="htmlOutputDiv"></div>     <div id="progOutputs">       Program output:<br>       <textarea id="pyStdout" cols="1" rows="2" wrap="off" readonly=""></textarea>     </div></td><td class="vizLayoutTd" id="vizLayoutTdSecond"><div id="dataViz">       <table id="stackHeapTable">         <tbody><tr>           <td id="stack_td">             <div id="globals_area">               <div id="stackHeader">Frames</div>             <div class="stackFrame highlightedStackFrame" id="v3__globals" style="display: none;"><div id="v3__globals_header" class="stackFrameHeader">Global frame</div><table class="stackFrameVarTable" id="v3__global_table"></table></div></div>             <div id="stack"></div>           </td>           <td id="heap_td">             <div id="heap">               <div id="heapHeader">Objects</div>             </div>           </td>         </tr>       </tbody></table>     </div></td></tr></tbody></table></div></div>
+
+<div id="footer">
+
+<p>
+  <button id="genUrlBtn" class="smallBtn" type="button">Generate URL</button> <input type="text" id="urlOutput" size="70">
+</p>
+
+<p>To share this visualization, click the 'Generate URL' button above
+and share that URL. You can use it to share with others or 
+<a href="https://cscircles.cemc.uwaterloo.ca/contact/">report a bug</a>.
+
+<!--
+<div id="embedLinkDiv">
+<p>
+  <button id="genEmbedBtn" class="smallBtn" type="button">Generate embed code</button> <input type="text" id="embedCodeOutput" size="70"/>
+</p>
+
+<p>To embed this visualization in your webpage, click the 'Generate
+embed code' button above and paste the resulting HTML code into your
+webpage. Adjust the height and width parameters as needed.</p>
+</div>
+-->
+
+<!--
+<a href="http://pythontutor.com/">Online Python Tutor</a> supports <a
+href="http://www.python.org/doc/2.7/">Python 2.7</a> and <a
+href="http://www.python.org/doc/3.3.0/">Python 3.3</a> with limited module
+imports and no file I/O. 
+The following modules may be imported: 
+bisect,
+collections,
+datetime,
+functools,
+heapq,
+json,
+math,
+operator,
+random,
+re,
+string
+</p>
+
+<p>Have a question? Maybe the <a
+href="https://github.com/pgbovine/OnlinePythonTutor/blob/master/v3/docs/user-FAQ.md">FAQ</a>
+or other <a
+href="https://github.com/pgbovine/OnlinePythonTutor/blob/master/v3/docs/">documentation</a>
+can help. Or check out its code at <a
+href="https://github.com/pgbovine/OnlinePythonTutor/">GitHub</a>.</p>
+
+<p>Join the <a
+href="https://groups.google.com/forum/#!forum/pythontutor-users">pythontutor-users</a>
+mailing list to participate in user discussions and <a
+href="https://groups.google.com/forum/#!forum/pythontutor-announce">pythontutor-announce</a>
+to receive occasional announcements.
+(Your name and email address will be kept private; only the list owner can see them.)</p>
+-->
+
+</p><p>For more information about this tool (including Python 2 usage), visit <a href="http://www.pythontutor.com/">www.pythontutor.com</a>.</p>
+
+<p style="margin-top: 8px;">
+Original tool © 2010-2013 <a href="http://www.pgbovine.net/">Philip Guo</a>. 
+This version by <a href="http://cscircles.cemc.uwaterloo.ca/">CS Circles</a>.
+</p>
+
+</div>
+
+
+
+
+<div id="qtip-rcontainer"></div></body></html>
